@@ -17,22 +17,22 @@ var questions = [
 		{
 			isCorrect: false,
 			text: 'a) Suggest they put the information on a USB stick and complete the work on the journey',
-			selectedText: '12345 A'
+			selectedText: 'Nice try, but no cigar'
 		},
 		{
 			isCorrect: true,
 			text: 'b) Stay and help complete the task together',
-			selectedText: '12345 B'
+			selectedText: 'Good choice, at TLRG we value collaboration'
 		},
 		{
 			isCorrect: false,
 			text: 'c) Leave it to them, they can always catch a later train',
-			selectedText: '12345 C'
+			selectedText: 'Try again'
 		},
 		{
 			isCorrect: false,
 			text: 'd) Suggest they email their manager to say the project won’t be completed on time',
-			selectedText: '12345 D'
+			selectedText: 'Try again'
 		}
 	]
 },
@@ -52,19 +52,24 @@ var questions = [
 	questionAnswers: [
 		{
 			isCorrect: true,
-			text: 'a) Ask a guard for their advice on the quickest route'
+			text: 'a) Ask a guard for their advice on the quickest route',
+			selectedText: 'Good choice, at TLRG we’re results driven'
 		},
 		{
 			isCorrect: false,
-			text: 'b) Hang around and see if the board gets updated with new times'
+			text: 'b) Hang around and see if the board gets updated with new times',
+			selectedText: 'Try again'
+
 		},
 		{
 			isCorrect: false,
-			text: 'c) Rearrange your flights for the next day'
+			text: 'c) Rearrange your flights for the next day',
+			selectedText: 'Try again'
 		},
 		{
 			isCorrect: false,
-			text: 'd) There’s a train to Birmingham on the next platform – jump on it and take it from there'
+			text: 'd) There’s a train to Birmingham on the next platform – jump on it and take it from there',
+			selectedText: 'Nice try, but no cigar'
 		}
 	]
 },
@@ -84,19 +89,23 @@ var questions = [
 	questionAnswers: [
 		{
 			isCorrect: false,
-			text: 'a) Tell them where you’re staying and suggest they go there'
+			text: 'a) Tell them where you’re staying and suggest they go there',
+			selectedText: 'Nice try, but no cigar'
 		},
 		{
 			isCorrect: false,
-			text: 'b) I’m too busy to help – I need to check in my bags'
+			text: 'b) I’m too busy to help – I need to check in my bags',
+			selectedText: 'Try again'
 		},
 		{
 			isCorrect: false,
-			text: 'c) Suggest they search on the internet'
+			text: 'c) Suggest they search on the internet',
+			selectedText: 'Try again'
 		},
 		{
 			isCorrect: true,
-			text: 'd) Show them how to download the AsiaRooms App'
+			text: 'd) Show them how to download the AsiaRooms App',
+			selectedText: 'Good choice, at TLRG we put the customer at the heart of everything we do'
 		}
 	]
 },
@@ -112,19 +121,23 @@ var questions = [
 	questionAnswers: [
 		{
 			isCorrect: false,
-			text: 'a) Cram them all in a day. At least you can tell people back home that you’ve done everything!'
+			text: 'a) Cram them all in a day. At least you can tell people back home that you’ve done everything!',
+			selectedText: 'Try again'
 		},
 		{
 			isCorrect: true,
-			text: 'b) Write a list of everything you want to see and then pick your top ones to make the most of'
+			text: 'b) Write a list of everything you want to see and then pick your top ones to make the most of',
+			selectedText: 'Good choice, at TLRG we value people setting priorities'
 		},
 		{
 			isCorrect: false,
-			text: 'c) Do what the concierge says'
+			text: 'c) Do what the concierge says',
+			selectedText: 'Oh not quite, have another go'
 		},
 		{
 			isCorrect: false,
-			text: 'd) Can’t decide so stay at the hotel. You’ll just have to go to Singapore another time'
+			text: 'd) Can’t decide so stay at the hotel. You’ll just have to go to Singapore another time',
+			selectedText: 'Try again'
 		}
 	]
 },
@@ -140,19 +153,23 @@ var questions = [
 	questionAnswers: [
 		{
 			isCorrect: false,
-			text: 'a) Keep it for yourself, but don’t tell your friend.  Finders Keepers!'
+			text: 'a) Keep it for yourself, but don’t tell your friend.  Finders Keepers!',
+			selectedText: 'Try again'
 		},
 		{
 			isCorrect: false,
-			text: 'b) Keep it and share it with your friend – what a great piece of luck'
+			text: 'b) Keep it and share it with your friend – what a great piece of luck',
+			selectedText: 'Try again'
 		},
 		{
 			isCorrect: true,
-			text: 'c) Hand it to the nearest member of staff at the gardens'
+			text: 'c) Hand it to the nearest member of staff at the gardens',
+			selectedText: 'Fantastic, at TLRG we value trustworthy and honest behaviour'
 		},
 		{
 			isCorrect: false,
-			text: 'd) Leave it, I’m sure they’ll come back to look for it'
+			text: 'd) Leave it, I’m sure they’ll come back to look for it',
+			selectedText: 'OK they might come back, but they might not – try again'
 		}
 	]
 },
@@ -168,19 +185,23 @@ var questions = [
 	questionAnswers: [
 		{
 			isCorrect: false,
-			text: 'a) Let your friend go on their own'
+			text: 'a) Let your friend go on their own',
+			selectedText: 'Try again'
 		},
 		{
 			isCorrect: false,
-			text: 'b) Join them even though you have your suspicions – what’s the worst that can happen?!'
+			text: 'b) Join them even though you have your suspicions – what’s the worst that can happen?!',
+			selectedText: 'OK you’ll keep an eye on them, but really...?'
 		},
 		{
 			isCorrect: true,
-			text: 'c) Convince your friends that you will have a better night if you do something else'
+			text: 'c) Convince your friends that you will have a better night if you do something else',
+			selectedText: 'Good one, sometimes we need to be assertive'
 		},
 		{
 			isCorrect: false,
-			text: 'd) Flip a coin and leave it to fate'
+			text: 'd) Flip a coin and leave it to fate',
+			selectedText: 'Try again'
 		}
 	]
 },
@@ -196,19 +217,23 @@ var questions = [
 	questionAnswers: [
 		{
 			isCorrect: false,
-			text: 'a) Let everyone decide for themselves'
+			text: 'a) Let everyone decide for themselves',
+			selectedText: 'Oh not quite, have another go'
 		},
 		{
 			isCorrect: true,
-			text: 'b) Ask everyone to tell you their skills and assign roles'
+			text: 'b) Ask everyone to tell you their skills and assign roles',
+			selectedText: 'Good choice, at TLRG we appreciate that leadership skills.'
 		},
 		{
 			isCorrect: false,
-			text: 'c) Put everyone’s names in a hat and randomly pick numbers'
+			text: 'c) Put everyone’s names in a hat and randomly pick numbers',
+			selectedText: 'No! Try again!'
 		},
 		{
 			isCorrect: false,
-			text: 'd) Don’t assign roles and let everyone do a bit of everything'
+			text: 'd) Don’t assign roles and let everyone do a bit of everything',
+			selectedText: 'Try again'
 		}
 	]
 }

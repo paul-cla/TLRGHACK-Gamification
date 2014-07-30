@@ -2,7 +2,7 @@
 var questions = [
 {
 	id: 1,
-	questionText: 'Colleague needs to finish an urgent project before they leave. What do you do next?',
+	questionText: 'Your colleague needs to finish an urgent project before they leave. What do you do next?',
 	questionMedia: [
 		{
 			type: 'video',

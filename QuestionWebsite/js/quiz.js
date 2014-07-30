@@ -35,7 +35,7 @@ var questions = [
 			selectedText: 'Try again'
 		}
 	],
-	fact: 'The LateRooms Group is made up of 3 brands operating globally – LateRooms.com, MalaPronta.com and AsiaRooms.com'
+	fact: 'Did you know? The LateRooms Group is made up of 3 brands operating globally – LateRooms.com, MalaPronta.com and AsiaRooms.com'
 },
 {
 	id: 2,
@@ -73,7 +73,7 @@ var questions = [
 			selectedText: 'Nice try, but no cigar'
 		}
 	],
-	fact: 'LateRooms Group started with LateRooms.com in Manchester in 1999'
+	fact: 'Did you know? The LateRooms Group started with LateRooms.com in Manchester in 1999'
 },
 {
 	id: 3,
@@ -110,7 +110,7 @@ var questions = [
 			selectedText: 'Good choice, at TLRG we put the customer at the heart of everything we do'
 		}
 	],
-	fact: 'In early 2007 LateRooms became part of the TUI Travel PLC group'
+	fact: 'Did you know? In early 2007 LateRooms became part of the TUI Travel PLC group'
 },
 {
 	id: 4,
@@ -143,7 +143,7 @@ var questions = [
 			selectedText: 'Try again'
 		}
 	],
-	fact: '4.5 million customers worldwide across our 3 brands'
+	fact: 'Did you know? We have 4.5 million customers worldwide across our 3 brands'
 },
 {
 	id: 5,
@@ -176,7 +176,7 @@ var questions = [
 			selectedText: 'OK they might come back, but they might not – try again'
 		}
 	],
-	fact: '65,000 hotel partners including Hilton, Best Western and Marriott'
+	fact: 'Did you know? We have 65,000 hotel partners including Hilton, Best Western and Marriott'
 },
 {
 	id: 6,
@@ -209,7 +209,7 @@ var questions = [
 			selectedText: 'Try again'
 		}
 	],
-	fact: '5 offices globally – Manchester, London, Curitiba, Bangkok and Singapore'
+	fact: 'Did you know? We have 5 offices globally – Manchester, London, Curitiba, Bangkok and Singapore'
 },
 {
 	id: 7,
@@ -242,7 +242,7 @@ var questions = [
 			selectedText: 'Try again'
 		}
 	],
-	fact: 'One of the best things about TLRG is its collaborative environment and community spirit'
+	fact: 'Did you know? One of the best things about TLRG is its collaborative environment and community spirit'
 }
 ];
 

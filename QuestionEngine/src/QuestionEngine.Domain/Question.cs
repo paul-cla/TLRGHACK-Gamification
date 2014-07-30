@@ -9,13 +9,14 @@ namespace QuestionEngine.Domain
     public class Question
     {
         // ReSharper disable InconsistentNaming
-        public Question(int ID, string Text, List<Answer> Answers, List<Media> media)
+        public Question(int ID, string Text, List<Answer> Answers, List<Media> media, int nextQuestion)
             // ReSharper restore InconsistentNaming
         {
             Id = ID;
             this.Text = Text;
             this.Answers = Answers;
             Media = media;
+            NextQuestion = nextQuestion;
         }
 
         [DataMember]

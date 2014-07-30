@@ -2,7 +2,8 @@
 var questions = [
 {
 	questionText: 'I want to work for LateRooms because...',
-	questionImage: '2.jpg',
+	questionBackgroundUrl: 'http://www.youtube.com/watch?v=txGfncd5L9U',
+	questionBackgroundType: 'video',
 	questionAnswers: [
 		{
 			isCorrect: true,
@@ -20,7 +21,8 @@ var questions = [
 },
 {
 	questionText: 'Which of these is a LateRooms brand...',
-	questionImage: '3.jpg',
+	questionBackgroundUrl: 'img/3.jpg',
+	questionBackgroundType: 'image',
 	questionAnswers: [
 		{
 			isCorrect: false,
@@ -42,11 +44,87 @@ var questions = [
 }
 ];
 
-var AlertWrongAnswerHandler = function() {
+var ImageBackgroundUpdater = function() {
+
+	var updateBackground = function(backgroundContainer, url, context) {
+		backgroundContainer.css('background-image', 'url("' + url + '")');
+	}
+
+	return {
+		UpdateBackground: updateBackground
+	}
+}
+
+var MagnificVideoPlayer = function() {
+
+	var playVideo = function(url) {
+		$.magnificPopup.open({
+		  items: {
+		    src: url
+		  },
+		  type: 'iframe'
+		});
+	}
+
+	return {
+		PlayVideo: playVideo
+	}
+}
+
+var VideoBackgroundUpdater = function() {
+
+	var videoPlayer = MagnificVideoPlayer();
+
+	var updateBackground = function(backgroundContainer, url, context) {
+		videoPlayer.PlayVideo(url);
+	}
+
+	return {
+		UpdateBackground: updateBackground
+	}
+}
+
+var MixedBackgroundUpdater = function() {
+
+	var imageBackgroundUpdater = ImageBackgroundUpdater();
+	var videoBackgroundUpdater = VideoBackgroundUpdater();
+
+	var updateBackground = function(backgroundContainer, url, context)  {
+		if(context == 'image') {
+			console.debug('showing image background');
+			imageBackgroundUpdater.UpdateBackground(backgroundContainer, url, context);
+		} else if (context == 'video') {
+			console.debug('showing video background');
+			videoBackgroundUpdater.UpdateBackground(backgroundContainer, url, context);
+		}
+		else {
+			console.debug('Unknown background type: ' + context);
+		}
+	}
+
+	return {
+		UpdateBackground: updateBackground
+	}
+}
+
+var AlertWrongAnswerHandler = function(wrongAnswerMessage) {
 
 	var handleWrongAnswer = function() {
 
-		alert('WRONG!');
+		alert(wrongAnswerMessage);
+	}
+
+	return {
+		HandleWrongAnswer: handleWrongAnswer
+	}
+}
+
+var VideoWrongAnswerHandler = function(wrongAnswerVideoUrl) {
+
+	var videoPlayer = MagnificVideoPlayer();
+
+	var handleWrongAnswer = function() {
+		videoPlayer.PlayVideo(wrongAnswerVideoUrl);
 	}
 
 	return {
@@ -79,24 +157,26 @@ var StaticQuestionProvider = function() {
 var Quiz = function() {
 
 	var startQuiz;
-	var imageContainer;
+	var backgroundContainer;
 	var questionHeader;
 	var questionText;
 	var answerContainer;
 	var questionProvider;
 	var wrongAnswerHandler;
+	var backgroundUpdater;
 	var currentQuestionIndex;
 	var dataAnswerIndex = 'data-answer-index';
 
 	var init = function(options) {
 
 		startQuiz = $(options.startQuizSelector);
-		imageContainer = $(options.imageContainerSelector);
+		backgroundContainer = $(options.backgroundContainerSelector);
 		questionHeader = $(options.questionHeaderSelector);
 		questionText = $(options.questionTextSelector);
 		answerContainer = $(options.questionAnswerContainerSelector);
-		questionProvider = options.questionProvider();
-		wrongAnswerHandler = options.wrongAnswerHandler();
+		questionProvider = options.questionProvider;
+		wrongAnswerHandler = options.wrongAnswerHandler;
+		backgroundUpdater = options.backgroundUpdater;
 		currentQuestionIndex = 0;	
 
 		startQuiz.on('click', answerClicked);
@@ -131,9 +211,7 @@ var Quiz = function() {
 
 		questionHeader.text('Question ' + (currentQuestionIndex+1));
 
-		var nextImage = 'url("img/' + question.questionImage + '")';
-
-		imageContainer.css('background-image', nextImage);
+		backgroundUpdater.UpdateBackground(backgroundContainer, question.questionBackgroundUrl, question.questionBackgroundType);
 
 		questionText.text(question.questionText);
 
@@ -154,7 +232,7 @@ var Quiz = function() {
 
 	var createAnswerButton = function(answerContainer, answerIndex, answer) {
 
-		var questionButton = $('<a href="#" class="btn btn-lg btn-default start-quiz ' + answer.isCorrect + '">' + answer.text + '</a>');
+		var questionButton = $('<a href="#" class="btn btn-lg btn-default start-quiz">' + answer.text + '</a>');
 
 		answerContainer.append(questionButton);
 		answerContainer.append('&nbsp;');
@@ -183,15 +261,16 @@ var Quiz = function() {
 }();
 
 $(function () {
-	
+
 	Quiz.Init({
 		startQuizSelector: '.start-quiz',
-		imageContainerSelector: 'body',
+		backgroundContainerSelector: '.site-wrapper',
 		questionHeaderSelector: '.question-header',
 		questionTextSelector: '.question-text',
 		questionAnswerContainerSelector: '.question-answer-container',
-		questionProvider: StaticQuestionProvider,
-		wrongAnswerHandler: AlertWrongAnswerHandler
+		questionProvider: StaticQuestionProvider(),
+		wrongAnswerHandler: AlertWrongAnswerHandler('WRONG!!'),
+		backgroundUpdater: MixedBackgroundUpdater()
 	});
 
 });

@@ -112,6 +112,11 @@ body {
   }
 }
 
+h1 {
+  font-size: 60px;
+  text-align: center;
+}
+
 
 /*
 * Cover
@@ -152,6 +157,7 @@ body {
   /* Start the vertical centering */
   .site-wrapper-inner {
     vertical-align: middle;
+    background-color: rgba(0,0,0,0.2);
   }
   /* Handle the widths */
   .masthead,

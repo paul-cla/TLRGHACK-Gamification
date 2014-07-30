@@ -443,11 +443,7 @@ var Quiz = function() {
 
 	var quizCompleted = function() {
 
-		questionHeader.text('CONGRATULATIONS!!!');
-
-		answerContainer.html('');
-
-		questionText.text('Congratulations your trip has come to a conclusion. You’ve created a thousand memories and made some great decisions along the way.\nNow you know what our values are, why don’t you take a look at our departments and see where your skills would fit in.');
+		document.location = 'congrats.html';
 	}
 
 	var nextQuestion = function() {

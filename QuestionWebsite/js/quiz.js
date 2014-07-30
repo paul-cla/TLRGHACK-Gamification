@@ -326,13 +326,19 @@ var SoundWrongAnswerHandler = function(wrongAnswerSoundUrl) {
 
 var StaticQuestionProvider = function() {
 
+	var soundPlayer = JavascriptSoundPlayer('snd/right.mp3');
+
 	var getQuestion = function(questionIndex) {
 
 		return questions[questionIndex];
 	}
 
 	var testAnswer = function(questionIndex, answerIndex) {
-		return questions[questionIndex].questionAnswers[answerIndex].isCorrect;
+		var isCorrect = questions[questionIndex].questionAnswers[answerIndex].isCorrect
+		if(isCorrect) {
+			soundPlayer.PlaySound();
+		}
+		return isCorrect;
 	}
 
 	var endOfQuiz = function(index) {

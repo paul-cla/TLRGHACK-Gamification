@@ -20,12 +20,5 @@ namespace QuestionEngine.API.Controllers
         {
             return _questionService.GetQuestion(questionId);
         }
-        
-        [CacheOutput(ClientTimeSpan = 86400, ServerTimeSpan = 86400)]
-        [HttpGet]
-        public CheckedQuestion CheckAnswer(int questionId, int answerId)
-        {
-            return _questionService.CheckAnswer(questionId, answerId);
-        }
     }
 }

@@ -14,19 +14,11 @@ namespace QuestionEngine.DataAccess
         public QuestionRepository()
         {
             _questionsSet = new QuestionSet();
-            _questionsSet.Questions = new List<Question>();
-            _questionsSet.Questions.Add(new Question(1, "Test"));
         }
 
         public Question GetQuestion(int questionId)
         {
-            var cacheKey = "GetQuestion" + questionId;
-            return _cache.GetOrAdd(cacheKey, () => GetQuestionFromRepo(questionId), new CacheItemPolicy());
-        }
-
-        public CheckedQuestion CheckAnswer(int questionId, int answerId)
-        {
-            var question = _questionsSet.Questions.FirstOrDefault(x => x.Id == questionId && x.);
+            return _questionsSet.Questions.FirstOrDefault(x => x.Id == questionId);
         }
 
         public Question GetQuestionFromRepo(int questionId)

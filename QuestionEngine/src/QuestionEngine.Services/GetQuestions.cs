@@ -16,10 +16,5 @@ namespace QuestionEngine.Services
         {
             return _questionRepository.GetQuestion(questionId);
         }
-
-        public CheckedQuestion CheckAnswer(int questionId, int answerId)
-        {
-            return _questionRepository.CheckAnswer(questionId, answerId);
-        }
     }
 }

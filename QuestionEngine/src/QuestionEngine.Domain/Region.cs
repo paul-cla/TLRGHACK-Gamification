@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
-namespace Keywords.Domain
+namespace QuestionEngine.Domain
 {
     [DataContract(Namespace = "http://api.laterooms.com/keyword/")]
     [JsonObject(MemberSerialization.OptIn)]

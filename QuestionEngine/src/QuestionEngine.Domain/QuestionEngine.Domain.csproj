@@ -47,11 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Answers.cs" />
+    <Compile Include="Question.cs" />
     <Compile Include="Region.cs" />
-    <Compile Include="GoodStatus.cs" />
-    <Compile Include="IKeywordRepository.cs" />
-    <Compile Include="IStatus.cs" />
-    <Compile Include="Keyword.cs" />
+    <Compile Include="IQuestionRepository.cs" />
+    <Compile Include="Answer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

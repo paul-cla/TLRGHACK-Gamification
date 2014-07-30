@@ -1,4 +1,4 @@
-﻿namespace Keywords.API.Models.Errors
+﻿namespace QuestionEngine.API.Models.Errors
 {
     public static class ApiErrorCodes
     {

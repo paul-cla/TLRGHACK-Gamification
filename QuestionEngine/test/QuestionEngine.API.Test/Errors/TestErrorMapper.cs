@@ -2,11 +2,11 @@
 using System.ServiceModel;
 using FluentAssertions;
 using NUnit.Framework;
-using Keywords.API.Errors;
-using Keywords.API.Models.Errors;
+using QuestionEngine.API.Errors;
+using QuestionEngine.API.Models.Errors;
 using TLRGrp.WebApi.ErrorHandling;
 
-namespace Keywords.API.Test.Errors
+namespace QuestionEngine.API.Test.Errors
 {
     [TestFixture]
     public class TestErrorMapper

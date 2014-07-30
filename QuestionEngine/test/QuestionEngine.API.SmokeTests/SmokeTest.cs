@@ -10,17 +10,14 @@ using NUnit.Framework;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
-using Keywords.Domain;
+using QuestionEngine.Domain;
 
-namespace Keywords.API.SmokeTests
+namespace QuestionEngine.API.SmokeTests
 {
     [TestFixture]
     public class SmokeTest
     {
-        [TestCase("http://{0}/keyword/1/Test", Schemas.Keywords, typeof(Keyword))]
-        [TestCase("http://{0}/keyword/1", Schemas.Keywords, typeof(Keyword))]
-        [TestCase("http://{0}/region/1/Test", Schemas.Regions, typeof(Region))]
-        [TestCase("http://{0}/region/1", Schemas.Regions, typeof(Region))]
+        [TestCase("http://{0}/question/1", Schemas.Keywords, typeof(Question))]
         public void KeywordUrls(string url, string schema, Type t)
         {
             var body = GetWebResponse(url, new List<object>());
@@ -29,7 +26,7 @@ namespace Keywords.API.SmokeTests
             JsonConvert.DeserializeObject(body, t).Should().NotBeNull();
         }
 
-        [TestCase("http://{0}/foo/baa", Schemas.Error, typeof(Keyword))]
+        [TestCase("http://{0}/foo/baa", Schemas.Error, typeof(Question))]
         public void ErrorUrls(string url, string schema, Type t)
         {
             var body = GetWebResponse(url, new List<object>());
@@ -111,48 +108,17 @@ namespace Keywords.API.SmokeTests
 						'type':'number',
 						'required':true
 					},
-                    'KeywordText': {
+                    'Text': {
                         'type':'string',
 						'required':true
                     },
-                    'AreaName': {
-                        'type':'string',
-						'required':true
-                    },
-                    'Country': {
-                        'type':'string',
-						'required':true
-                    },
-                    'AreaID': {
-                        'type':'number',
-						'required':true
-                    },
-                    'FriendlyText': {
+                    'Answers': {
                         'type':'string',
 						'required':true
                     }
 				}
 			}";
         
-        public const string Regions = @"
-			{
-				'type':'object',
-				'required':true,
-				'properties':{
-					'id': {
-						'type':'number',
-						'required':true
-					},
-                    'RegionText': {
-                        'type':'string',
-						'required':true
-                    },
-                    'FriendlyText': {
-                        'type':'string',
-						'required':true
-                    }
-				}
-			}";
         public const string Error = @"
 			{
 				'type':'object',

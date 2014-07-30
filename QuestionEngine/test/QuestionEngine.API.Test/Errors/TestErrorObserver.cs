@@ -4,14 +4,14 @@ using FluentAssertions;
 using Infrastructure.Logging.LogToUdp;
 using Infrastructure.Logging.Shared;
 using NUnit.Framework;
-using Keywords.API.Errors;
-using Keywords.API.Models.Errors;
-using Keywords.API.Support;
+using QuestionEngine.API.Errors;
+using QuestionEngine.API.Models.Errors;
+using QuestionEngine.API.Support;
 using Rhino.Mocks;
 using TLRGrp.WebApi.ErrorHandling;
 using log4net;
 
-namespace Keywords.API.Test.Errors
+namespace QuestionEngine.API.Test.Errors
 {
     [TestFixture]
     public class ErrorObserverTests : IMessageLogger

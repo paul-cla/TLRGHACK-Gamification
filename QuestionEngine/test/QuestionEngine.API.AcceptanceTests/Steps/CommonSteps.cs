@@ -1,11 +1,10 @@
-﻿using Keywords.API.DependencyResolution;
-using Keywords.DataAccess;
-using Keywords.DataAccess.Tests;
-using Keywords.Domain;
+﻿using QuestionEngine.API.DependencyResolution;
+using QuestionEngine.DataAccess.Tests;
+using QuestionEngine.Domain;
 using StructureMap;
 using TechTalk.SpecFlow;
 
-namespace Keywords.API.AcceptanceTests.Steps
+namespace QuestionEngine.API.AcceptanceTests.Steps
 {
     [Binding]
     public class CommonSteps
@@ -13,17 +12,17 @@ namespace Keywords.API.AcceptanceTests.Steps
         [BeforeScenario]
         public void BeforeScenario()
         {
-            FakeKeywordRepository = new FakeKeywordRepository();
+            FakeKeywordRepository = new FakeQuestionRepository();
 
             IoC.Initialize();
-            ObjectFactory.EjectAllInstancesOf<IKeywordRepository>();
+            ObjectFactory.EjectAllInstancesOf<IQuestionRepository>();
             ObjectFactory.Configure(
-                x => x.For<IKeywordRepository>().Use(FakeKeywordRepository));
+                x => x.For<IQuestionRepository>().Use(FakeKeywordRepository));
 
         }
-        public static FakeKeywordRepository FakeKeywordRepository
+        public static FakeQuestionRepository FakeKeywordRepository
         {
-            get { return ScenarioContext.Current.Get<FakeKeywordRepository>(); }
+            get { return ScenarioContext.Current.Get<FakeQuestionRepository>(); }
             set { ScenarioContext.Current.Set(value); }
         }
     }

@@ -1,7 +1,7 @@
-﻿using Keywords.API.Support;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using QuestionEngine.API.Support;
 
-namespace Keywords.API.Test
+namespace QuestionEngine.API.Test
 {
     [TestFixture]
     public class StringHelperTests

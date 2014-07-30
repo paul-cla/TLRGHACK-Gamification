@@ -2,7 +2,7 @@
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace Keywords.DataAccess.Tests
+namespace QuestionEngine.DataAccess.Tests
 {
     [TestFixture]
     public class ObjectCacheExtensionsTest

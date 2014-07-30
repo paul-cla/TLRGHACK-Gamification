@@ -21,14 +21,14 @@ using System.Web;
 using Infrastructure.DataAccess.Dapper;
 using Infrastructure.Logging.LogToUdp;
 using Infrastructure.Logging.Shared;
-using Keywords.API.Errors;
-using Keywords.DataAccess;
-using Keywords.Domain;
-using Keywords.Services;
+using QuestionEngine.API.Errors;
+using QuestionEngine.DataAccess;
+using QuestionEngine.Domain;
+using QuestionEngine.Services;
 using StructureMap;
 using log4net;
 
-namespace Keywords.API.DependencyResolution
+namespace QuestionEngine.API.DependencyResolution
 {
     public static class IoC
     {
@@ -48,7 +48,7 @@ namespace Keywords.API.DependencyResolution
                                 IpAddress = logStashConfig.IPAdress,
                                 Port = logStashConfig.Port,
                                 Source = Environment.MachineName,
-                                Type = "keyword_api_error",
+                                Type = "question_api_error",
                             });
 
                             x.For<ICastUdpMessages>().Use<UdpErrorCaster>();
@@ -57,11 +57,11 @@ namespace Keywords.API.DependencyResolution
                                     {
                                         scan.TheCallingAssembly();
                                         scan.WithDefaultConventions();
-                                        scan.AssemblyContainingType<IGetKeyword>();
-                                        scan.AssemblyContainingType<IKeywordRepository>();
-                                        scan.AssemblyContainingType<KeywordRepository>();
+                                        scan.AssemblyContainingType<IGetQuestions>();
+                                        scan.AssemblyContainingType<IQuestionRepository>();
+                                        scan.AssemblyContainingType<QuestionRepository>();
                                     });
-                            x.For<IDatabase>().Use<LateRoomsDatabase>();
+                            x.For<IDatabase>().Use<QuestionDatabase>();
                             x.For<HttpContextBase>().Use(() => new HttpContextWrapper(HttpContext.Current));
                         });
 

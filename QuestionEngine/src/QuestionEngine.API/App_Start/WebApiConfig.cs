@@ -1,8 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Http;
-using Keywords.API.Controllers;
 
-namespace Keywords.API.App_Start
+namespace QuestionEngine.API.App_Start
 {
     public static class WebApiConfig
     {
@@ -25,48 +24,15 @@ namespace Keywords.API.App_Start
 
         private static void AddRouteConfig(HttpConfiguration config)
         {
-            config.Routes.MapHttpRoute("Status", "status", new { controller = "Status", action = "Status" });
-
             config.Routes.MapHttpRoute(
-                name: "KeywordByTextAndCountry",
-                routeTemplate: "keyword/{countryId}/{text}",
+                name: "Question",
+                routeTemplate: "question/{questionId}",
                 constraints: new
                 {
-                    countryId = @"\d+"
+                    questionId = @"\d+"
                 },
-                defaults: new { controller = "Keyword", action = "GetKeywordByTextAndCountry" }
-            ); 
-            
-            config.Routes.MapHttpRoute(
-                name: "KeywordById",
-                routeTemplate: "keyword/{keywordId}",
-                constraints: new
-                {
-                    keywordId = @"\d+"
-                },
-                defaults: new { controller = "Keyword", action = "GetKeywordById" }
+                defaults: new { controller = "Question", action = "GetQuestion" }
             );
-
-            config.Routes.MapHttpRoute(
-                name: "RegionById",
-                routeTemplate: "region/{regionId}",
-                constraints: new
-                {
-                    regionId = @"\d+"
-                },
-                defaults: new { controller = "Region", action = "GetRegionById" }
-            );
-
-            config.Routes.MapHttpRoute(
-                name: "RegionByText",
-                routeTemplate: "region/{countryId}/{text}",
-                constraints: new
-                {
-                    countryId = @"\d+"
-                },
-                defaults: new { controller = "Region", action = "GetRegionByText" }
-            ); 
-
 
             config.Routes.MapHttpRoute(
                 name: "CatchAllController",

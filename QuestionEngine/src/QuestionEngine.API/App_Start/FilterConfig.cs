@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Keywords.API.App_Start
+namespace QuestionEngine.API.App_Start
 {
     public class FilterConfig
     {

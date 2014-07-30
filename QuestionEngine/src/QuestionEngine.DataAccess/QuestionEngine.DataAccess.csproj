@@ -51,8 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ObjectCacheExtensions.cs" />
-    <Compile Include="KeywordRepository.cs" />
-    <Compile Include="LateRoomsDatabase.cs" />
+    <Compile Include="QuestionRepository.cs" />
+    <Compile Include="QuestionDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

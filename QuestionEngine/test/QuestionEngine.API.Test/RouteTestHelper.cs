@@ -6,9 +6,9 @@ using System.Web.Http.Dispatcher;
 using System.Web.Http.Hosting;
 using System.Web.Http.Routing;
 using NSubstitute;
-using Keywords.API.App_Start;
+using QuestionEngine.API.App_Start;
 
-namespace Keywords.API.Test
+namespace QuestionEngine.API.Test
 {
     public static class RouteTestHelper
     {

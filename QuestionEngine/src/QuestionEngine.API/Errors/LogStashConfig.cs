@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace Keywords.API.Errors
+namespace QuestionEngine.API.Errors
 {
     public class LogStashConfig : ConfigurationSection
     {

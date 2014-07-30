@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FakeKeywordRepository.cs" />
+    <Compile Include="FakeQuestionRepository.cs" />
     <Compile Include="ObjectCacheExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

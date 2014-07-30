@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ServiceModel;
-using Keywords.API.Models.Errors;
+using QuestionEngine.API.Models.Errors;
 using TLRGrp.WebApi.ErrorHandling;
 
-namespace Keywords.API.Errors
+namespace QuestionEngine.API.Errors
 {
     public class ErrorMapper
     {

@@ -19,7 +19,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using Keywords.API.App_Start;
 using Keywords.API.DependencyResolution;
-using Keywords.API.Errors;
+using QuestionEngine.API.DependencyResolution;
+using QuestionEngine.API.Errors;
 using StructureMap;
 using TLRGrp.WebApi.ErrorHandling;
 

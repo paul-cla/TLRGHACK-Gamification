@@ -1,4 +1,4 @@
-﻿namespace Keywords.API.AcceptanceTests.JsonExtension
+﻿namespace QuestionEngine.API.AcceptanceTests.JsonExtension
 {
     public class Schemas
     {

@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using Infrastructure.Logging.LogToUdp;
 using Infrastructure.Logging.Shared;
-using Keywords.API.Support;
+using QuestionEngine.API.Support;
 using TLRGrp.WebApi.ErrorHandling;
 using log4net;
 
-namespace Keywords.API.Errors
+namespace QuestionEngine.API.Errors
 {
     public class ErrorObserver : IExceptionObserver
     {

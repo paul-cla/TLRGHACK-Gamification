@@ -78,44 +78,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Features\GetRegion.feature.cs">
-      <DependentUpon>GetRegion.feature</DependentUpon>
+    <Compile Include="Features\GetQuestion.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Features\GetKeyword.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GetKeyword.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\StatusCheck.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StatusCheck.feature</DependentUpon>
+      <DependentUpon>GetQuestion.feature</DependentUpon>
     </Compile>
     <Compile Include="JsonExtension\AssertionExtension.cs" />
     <Compile Include="JsonExtension\JsonExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\CommonSteps.cs" />
-    <Compile Include="Steps\RegionSteps.cs" />
-    <Compile Include="Steps\StatusCheckSteps.cs" />
-    <Compile Include="Steps\KeywordSteps.cs" />
+    <Compile Include="Steps\QuestionSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Features\GetRegion.feature">
+    <None Include="Features\GetQuestion.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>GetRegion.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Features\GetKeyword.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>GetKeyword.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Features\StatusCheck.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>StatusCheck.feature.cs</LastGenOutput>
+      <LastGenOutput>GetQuestion.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>

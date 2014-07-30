@@ -3,7 +3,7 @@ using FluentAssertions.Execution;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
 
-namespace Keywords.API.AcceptanceTests.JsonExtension
+namespace QuestionEngine.API.AcceptanceTests.JsonExtension
 {
     public static class AssertionExtensions
     {

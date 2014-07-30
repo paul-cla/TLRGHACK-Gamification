@@ -3,15 +3,15 @@ using System.Data;
 using System.Data.SqlClient;
 using Infrastructure.DataAccess.Dapper;
 
-namespace Keywords.DataAccess
+namespace QuestionEngine.DataAccess
 {
-    public class LateRoomsDatabase : IDatabase
+    public class QuestionDatabase : IDatabase
     {
         private readonly string _connectionString;
 
-        public LateRoomsDatabase()
+        public QuestionDatabase()
         {
-            _connectionString = ConfigurationManager.ConnectionStrings["Keywords.API.Data"].ConnectionString;
+            _connectionString = ConfigurationManager.ConnectionStrings["QuestionEngine.API.Data"].ConnectionString;
         }
 
         public IDbConnection OpenConnection()

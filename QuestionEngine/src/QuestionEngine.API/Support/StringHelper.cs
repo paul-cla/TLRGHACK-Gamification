@@ -1,4 +1,4 @@
-﻿namespace Keywords.API.Support
+﻿namespace QuestionEngine.API.Support
 {
     public static class StringHelper
     {

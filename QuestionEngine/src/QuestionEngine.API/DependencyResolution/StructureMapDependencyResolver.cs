@@ -16,9 +16,10 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System.Web.Http.Dependencies;
+using Keywords.API.DependencyResolution;
 using StructureMap;
 
-namespace Keywords.API.DependencyResolution
+namespace QuestionEngine.API.DependencyResolution
 {
     /// <summary>
     /// The structure map dependency resolver.

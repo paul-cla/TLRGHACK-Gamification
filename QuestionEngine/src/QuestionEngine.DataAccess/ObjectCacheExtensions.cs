@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Caching;
 
-namespace Keywords.DataAccess
+namespace QuestionEngine.DataAccess
 {
     public static class ObjectCacheExtensions
     {

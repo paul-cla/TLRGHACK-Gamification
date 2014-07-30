@@ -42,8 +42,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetKeyword.cs" />
-    <Compile Include="IGetKeyword.cs" />
+    <Compile Include="GetQuestions.cs" />
+    <Compile Include="IGetQuestions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

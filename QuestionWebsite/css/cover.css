@@ -40,6 +40,7 @@ body {
 .site-wrapper {
   background-image: url('../img/Background.jpg');
   background-repeat: no-repeat;
+  background-position-y: 100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

@@ -361,10 +361,12 @@ var HighlightQuestionAnswerHandler = function(color) {
 
 var DialogAnswerHandler = function() {
 
-	var handleAnswer = function(button, answer) {
+	var handleAnswer = function(button, answer, callback) {
 		var dialogLayer = $('#messageDialog'); 
 		dialogLayer.text(answer.selectedText);
-		dialogLayer.dialog();
+		dialogLayer.dialog({
+			close: callback
+		});
 	}
 
 	return {
@@ -376,9 +378,9 @@ var CompositeAnswerHandler = function() {
 
 	var handlers = arguments;
 
-	var handleAnswer = function(button, answer) {
+	var handleAnswer = function(button, answer, callback) {
 		for(var i in handlers) {
-			handlers[i].HandleAnswer(button, answer);
+			handlers[i].HandleAnswer(button, answer, callback);
 		}
 	}
 
@@ -466,14 +468,18 @@ var Quiz = function() {
 
 			var answerIsCorrect = questionProvider.TestAnswer(currentQuestionIndex-1, answerIndex);
 			if(answerIsCorrect) {
-				rightAnswerHandler.HandleAnswer(button, question.questionAnswers[answerIndex]);
+				rightAnswerHandler.HandleAnswer(button, question.questionAnswers[answerIndex], afterCorrectAnswer);
 			}
 			else {
 				wrongAnswerHandler.HandleAnswer(button, question.questionAnswers[answerIndex]);
-				return;
 			}
+		} else {
+			afterCorrectAnswer();
 		}
+	}	
 
+	var afterCorrectAnswer = function() {
+		
 		if(questionProvider.EndOfQuiz(currentQuestionIndex)) {
 			quizCompleted();
 			return;
@@ -484,7 +490,7 @@ var Quiz = function() {
 		prepareNextQuestion(question);
 		
 		nextQuestion();
-	}	
+	}
 
 	var prepareNextQuestion = function(question) {
 
@@ -552,8 +558,8 @@ $(function () {
 		questionAnswerContainerSelector: '.question-answer-container',
 		questionFactContainerSelector: '.lr-facts p',
 		questionProvider: StaticQuestionProvider(),
-		rightAnswerHandler: CompositeAnswerHandler(SoundAnswerHandler('snd/right.mp3'), HighlightQuestionAnswerHandler('#0000ff'), AlertAnswerHandler()),
-		wrongAnswerHandler: CompositeAnswerHandler(SoundAnswerHandler('snd/wrong.mp3'), HighlightQuestionAnswerHandler('#ff0000'), AlertAnswerHandler()),
+		rightAnswerHandler: CompositeAnswerHandler(SoundAnswerHandler('snd/right.mp3'), HighlightQuestionAnswerHandler('#00ff00'), DialogAnswerHandler()),
+		wrongAnswerHandler: CompositeAnswerHandler(SoundAnswerHandler('snd/wrong.mp3'), HighlightQuestionAnswerHandler('#ff0000'), DialogAnswerHandler()),
 		backgroundUpdater: MixedBackgroundUpdater()
 	});
 

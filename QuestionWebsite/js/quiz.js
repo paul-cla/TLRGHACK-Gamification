@@ -34,7 +34,8 @@ var questions = [
 			text: 'd) Suggest they email their manager to say the project won’t be completed on time',
 			selectedText: 'Try again'
 		}
-	]
+	],
+	fact: 'The LateRooms Group is made up of 3 brands operating globally – LateRooms.com, MalaPronta.com and AsiaRooms.com'
 },
 {
 	id: 2,
@@ -71,7 +72,8 @@ var questions = [
 			text: 'd) There’s a train to Birmingham on the next platform – jump on it and take it from there',
 			selectedText: 'Nice try, but no cigar'
 		}
-	]
+	],
+	fact: 'LateRooms Group started with LateRooms.com in Manchester in 1999'
 },
 {
 	id: 3,
@@ -107,7 +109,8 @@ var questions = [
 			text: 'd) Show them how to download the AsiaRooms App',
 			selectedText: 'Good choice, at TLRG we put the customer at the heart of everything we do'
 		}
-	]
+	],
+	fact: 'In early 2007 LateRooms became part of the TUI Travel PLC group'
 },
 {
 	id: 4,
@@ -139,7 +142,8 @@ var questions = [
 			text: 'd) Can’t decide so stay at the hotel. You’ll just have to go to Singapore another time',
 			selectedText: 'Try again'
 		}
-	]
+	],
+	fact: '4.5 million customers worldwide across our 3 brands'
 },
 {
 	id: 5,
@@ -171,7 +175,8 @@ var questions = [
 			text: 'd) Leave it, I’m sure they’ll come back to look for it',
 			selectedText: 'OK they might come back, but they might not – try again'
 		}
-	]
+	],
+	fact: '65,000 hotel partners including Hilton, Best Western and Marriott'
 },
 {
 	id: 6,
@@ -203,7 +208,8 @@ var questions = [
 			text: 'd) Flip a coin and leave it to fate',
 			selectedText: 'Try again'
 		}
-	]
+	],
+	fact: '5 offices globally – Manchester, London, Curitiba, Bangkok and Singapore'
 },
 {
 	id: 7,
@@ -235,7 +241,8 @@ var questions = [
 			text: 'd) Don’t assign roles and let everyone do a bit of everything',
 			selectedText: 'Try again'
 		}
-	]
+	],
+	fact: 'One of the best things about TLRG is its collaborative environment and community spirit'
 }
 ];
 
@@ -424,6 +431,7 @@ var Quiz = function() {
 	var questionHeader;
 	var questionText;
 	var answerContainer;
+	var factContainer;
 	var questionProvider;
 	var rightAnswerHandler;
 	var wrongAnswerHandler;
@@ -439,6 +447,7 @@ var Quiz = function() {
 		questionHeader = $(options.questionHeaderSelector);
 		questionText = $(options.questionTextSelector);
 		answerContainer = $(options.questionAnswerContainerSelector);
+		factContainer = $(options.questionFactContainerSelector);
 		questionProvider = options.questionProvider;
 		rightAnswerHandler = options.rightAnswerHandler;
 		wrongAnswerHandler = options.wrongAnswerHandler;
@@ -488,6 +497,7 @@ var Quiz = function() {
 		questionText.text(question.questionText);
 
 		setQuestions(question);
+		setFact(question);
 	}
 
 	var setQuestions = function(question) {
@@ -500,6 +510,10 @@ var Quiz = function() {
 
 			createAnswerButton(answerContainer, i, answer);
 		}
+	}
+
+	var setFact = function(question){
+		factContainer.html(question.fact);
 	}
 
 	var createAnswerButton = function(answerContainer, answerIndex, answer) {
@@ -536,6 +550,7 @@ $(function () {
 		questionHeaderSelector: '.question-header',
 		questionTextSelector: '.question-text',
 		questionAnswerContainerSelector: '.question-answer-container',
+		questionFactContainerSelector: '.lr-facts p',
 		questionProvider: StaticQuestionProvider(),
 		rightAnswerHandler: CompositeAnswerHandler(SoundAnswerHandler('snd/right.mp3'), HighlightQuestionAnswerHandler('#0000ff'), AlertAnswerHandler()),
 		wrongAnswerHandler: CompositeAnswerHandler(SoundAnswerHandler('snd/wrong.mp3'), HighlightQuestionAnswerHandler('#ff0000'), AlertAnswerHandler()),

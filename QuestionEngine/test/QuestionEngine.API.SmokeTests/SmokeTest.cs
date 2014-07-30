@@ -18,7 +18,7 @@ namespace QuestionEngine.API.SmokeTests
     public class SmokeTest
     {
         [TestCase("http://{0}/question/1", Schemas.Keywords, typeof(Question))]
-        public void KeywordUrls(string url, string schema, Type t)
+        public void Questions(string url, string schema, Type t)
         {
             var body = GetWebResponse(url, new List<object>());
 

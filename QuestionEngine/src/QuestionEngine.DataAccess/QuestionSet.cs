@@ -120,8 +120,21 @@ namespace QuestionEngine.DataAccess
                     {
                         new Media("image", "Bangkok.jpg"),
                     },
-                -1));
+                questionCounter));
 
+            questions.Add(new Question(questionCounter++,
+                "The final destination of your travels is Brazil where you have been enlisted an Amazon Jungle Tour with 8 other people. You have been nominated as the leader, and you need to assign roles. Do you:",
+                new List<Answer> {
+                                new Answer(answerCounter++, "Let everyone decide for themselves", false),
+                                new Answer(answerCounter++, "Ask everyone to tell you their skills and assign roles", true),
+                                new Answer(answerCounter++, "Put everyone’s names in a hat and randomly pick numbers", false),
+                                new Answer(answerCounter++, "Don’t assign roles and let everyone do a bit of everything", false)
+                                },
+                new List<Media>
+                                {
+                                    new Media("image", "Brazil.jpg"),
+                                },
+                -1));
 
             return questions;
         }

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<customManifest>
+  <appHostConfig path="QuestionEngine.API" />
+  <appPoolConfig path="QuestionEngine.API" />
+  <regKey path="HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\Application\Public.QuestionEngine.API" >
+    <regValue name="HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\Application\Public.QuestionEngine.API\EventMessageFile" valueType="String" />
+  </regKey>
+</customManifest>

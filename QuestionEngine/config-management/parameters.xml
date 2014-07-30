@@ -1,0 +1,5 @@
+﻿<parameters>
+  <parameter name="destinationPath" defaultValue="C:\code\TLRGHACK-Gamification\QuestionEngine\src\QuestionEngine.API.WCF">
+    <parameterEntry kind="DestinationVirtualDirectory" scope="QuestionEngine.API" />
+  </parameter>
+</parameters>

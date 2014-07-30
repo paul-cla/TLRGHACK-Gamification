@@ -1,0 +1,66 @@
+<parameters>
+
+	<parameter name="httpBinding" defaultValue="<%= "*:80:#{get_hostname}" %>">
+		<parameterEntry kind="DeploymentObjectAttribute" scope="site\[\@name\=\'<%= escape configatron.application_name %>\'\]\/bindings" match="binding[@protocol='http']/@bindingInformation" />
+	</parameter>
+
+	<parameter name="siteName" defaultValue="<%= configatron.application_name %>">
+		<parameterEntry kind="ProviderPath" scope="appHostConfig" match="<%= configatron.application_name %>" />
+	</parameter>
+	
+	<parameter name="destinationPath" defaultValue="<%= File.join(Dir.pwd, "src", "#{configatron.application_name}").gsub(File::SEPARATOR, File::ALT_SEPARATOR || File::SEPARATOR) %>">
+		<parameterEntry kind="DestinationVirtualDirectory" scope="<%= configatron.application_name %>" />
+	</parameter>
+  
+	<parameter name="appPoolUsername" description="Application pool username" defaultValue="AD\username">
+		<parameterValidation type = "RegularExpression" validationString = "(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"/>
+		<parameterEntry type="DeploymentObjectAttribute" scope="appPoolConfig\[\@appPool\=\'<%= escape configatron.application_name %>\'\]\/add\[\@name\=\'<%= escape configatron.application_name %>\'\]\/processModel" match="/processModel/@userName" />
+	</parameter>
+	
+	<parameter name="appPoolPassword" description="Application pool password" tags="password" defaultValue="XXXX">
+		<parameterEntry type="DeploymentObjectAttribute" scope="appPoolConfig\[\@appPool\=\'<%= escape configatron.application_name %>\'\]\/add\[\@name\=\'<%= escape configatron.application_name %>\'\]\/processModel" match="/processModel/@password" />
+	</parameter>
+  
+	<parameter name="connectionString">
+		<parameterEntry kind="XmlFile" scope="(.*).config" match="//configuration/connectionStrings/add[@name='<%= configatron.application_name %>.Data']/@connectionString" />
+	</parameter>
+	
+	<parameter name="hostname" defaultValue="<%= get_hostname(with_version:true) %>">
+		<parameterEntry kind="XmlFile" scope="(.*).config" match="//configuration/appSettings/add[@key='hostname']/@value" />
+	</parameter>
+
+	<parameter name="logStashIPAddress" defaultValue="127.0.0.1">
+		<parameterEntry kind="XmlFile" scope="web.config" match="//configuration/LogStashConfig/@ipaddress" />
+	</parameter>
+
+	<parameter name="logStashPort" defaultValue="112">
+		<parameterEntry kind="XmlFile" scope="web.config" match="//configuration/LogStashConfig/@port" />
+	</parameter>
+
+	<parameter name="logStashEnabled" defaultValue="false">
+		<parameterEntry kind="XmlFile" scope="web.config" match="//configuration/LogStashConfig/@enabled" />
+	</parameter>
+	
+<!-- Status Checker -->
+	<parameter name="statusCheckerBinding" defaultValue="*:80:status.<%= get_hostname(with_version:false) %>">
+		<parameterEntry kind="DestinationBinding" scope="<%= configatron.application_name %>.StatusChecker" />
+	</parameter>
+
+	<parameter name="statusCheckerPath">
+		<parameterEntry kind="DestinationVirtualDirectory" scope="<%= configatron.application_name %>.StatusChecker" />
+	</parameter>
+  
+	<parameter name="statusCheckerSiteName" defaultValue="<%= configatron.application_name %>.Status">
+		<parameterEntry kind="ProviderPath" scope="appHostConfig" match="Service.StatusChecker" />
+	</parameter>
+   
+	<parameter name="statusCheckerClient" defaultValue="http://<%= get_hostname %>/ServiceAvailability.svc">
+		<parameterEntry kind="XmlFile" scope="(.*).config" match="//configuration/system.serviceModel/client/endpoint[@name='ServiceAvailabilityCheck']/@address" />
+	</parameter>
+
+	<parameter name="CompilationDebug" defaultValue="false">
+		<parameterEntry kind="XmlFile" scope="Web.config" match="//configuration/system.web/compilation/@debug" />
+	</parameter>
+
+
+</parameters>

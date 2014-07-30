@@ -1,0 +1,21 @@
+<parameters>
+	<setParameter name="httpBinding" value="<%= "*:80:#{get_hostname}" %>"/>	
+	<setParameter name="siteName" value="<%= "#{configatron.application_name}_v#{configatron.version.major}.#{configatron.version.minor}" %>"/>
+	<setParameter name="destinationPath" value="<%= "#{get_deploy_dir}\\#{configatron.application_name}" %>"/>
+	<setParameter name="connectionString" value="<%= @environment_configuration.connection_string %>"/>
+	<setParameter name="serviceClient" value="<%= "http://#{get_hostname}/Service.svc" %>" />
+	<setParameter name="appPoolUsername" value="<%= @environment_configuration.app_pool_username %>" />
+	<setParameter name="appPoolPassword" value="<%= @environment_configuration.app_pool_password %>" />
+
+	<setParameter name="hostname" value="<%= get_hostname(with_version:true) %>" />
+		
+	<setParameter name="statusCheckerBinding" value="<%= "*:80:status.#{get_hostname(with_version:false)}" %>"/>
+	<setParameter name="statusCheckerPath" value="<%= "#{get_deploy_dir(:with_version => false)}.StatusChecker\\Infrastructure.Service.StatusChecker" %>"/>
+	<setParameter name="statusCheckerEndpoints" value="<%= CGI::escapeHTML(StatusChecker.new.generate_endpoints(configatron.dir.statuschecker, :hostname => get_hostname(with_version: false))) %>"/>
+	<setParameter name="statusCheckerSiteName" value="<%= CGI::escapeHTML(configatron.application_name) %>.Status"/>
+	<setParameter name="statusCheckerClient" value="<%= "http://#{get_hostname}/ServiceAvailability.svc" %>"/>
+	
+	<setParameter name="logStashIPAddress" value="<%= @environment_configuration.monitoring.logstash_ipaddress %>" />
+	<setParameter name="logStashPort" value="<%= @environment_configuration.monitoring.logstash_port %>" />
+	<setParameter name="logStashEnabled" value="<%= @environment_configuration.monitoring.logstash_enabled %>" />
+</parameters>

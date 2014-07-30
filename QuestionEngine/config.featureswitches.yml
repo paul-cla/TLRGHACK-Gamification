@@ -1,0 +1,21 @@
+features:
+  telfordlive: 
+    blue: &live
+      <<: *live
+    green:
+      <<: *live
+
+  sandbox:
+    <<: *live
+
+  qa: &qa
+    <<: *live
+
+  ci: &ci
+    <<: *qa
+
+  perf: 
+    <<: *ci
+
+  dev:
+    <<: *ci

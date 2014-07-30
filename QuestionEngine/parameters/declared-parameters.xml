@@ -1,0 +1,66 @@
+<parameters>
+
+	<parameter name="httpBinding" defaultValue="*:80:v1.0.api.keywords.local">
+		<parameterEntry kind="DeploymentObjectAttribute" scope="site\[\@name\=\'Keywords\.API\'\]\/bindings" match="binding[@protocol='http']/@bindingInformation" />
+	</parameter>
+
+	<parameter name="siteName" defaultValue="Keywords.API">
+		<parameterEntry kind="ProviderPath" scope="appHostConfig" match="Keywords.API" />
+	</parameter>
+	
+	<parameter name="destinationPath" defaultValue="C:\Develop\TLRGrp.Keywords.API\trunk\src\Keywords.API">
+		<parameterEntry kind="DestinationVirtualDirectory" scope="Keywords.API" />
+	</parameter>
+  
+	<parameter name="appPoolUsername" description="Application pool username" defaultValue="AD\username">
+		<parameterValidation type = "RegularExpression" validationString = "(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"/>
+		<parameterEntry type="DeploymentObjectAttribute" scope="appPoolConfig\[\@appPool\=\'Keywords\.API\'\]\/add\[\@name\=\'Keywords\.API\'\]\/processModel" match="/processModel/@userName" />
+	</parameter>
+	
+	<parameter name="appPoolPassword" description="Application pool password" tags="password" defaultValue="XXXX">
+		<parameterEntry type="DeploymentObjectAttribute" scope="appPoolConfig\[\@appPool\=\'Keywords\.API\'\]\/add\[\@name\=\'Keywords\.API\'\]\/processModel" match="/processModel/@password" />
+	</parameter>
+  
+	<parameter name="connectionString">
+		<parameterEntry kind="XmlFile" scope="(.*).config" match="//configuration/connectionStrings/add[@name='Keywords.API.Data']/@connectionString" />
+	</parameter>
+	
+	<parameter name="hostname" defaultValue="v1.0.api.keywords.local">
+		<parameterEntry kind="XmlFile" scope="(.*).config" match="//configuration/appSettings/add[@key='hostname']/@value" />
+	</parameter>
+
+	<parameter name="logStashIPAddress" defaultValue="127.0.0.1">
+		<parameterEntry kind="XmlFile" scope="web.config" match="//configuration/LogStashConfig/@ipaddress" />
+	</parameter>
+
+	<parameter name="logStashPort" defaultValue="112">
+		<parameterEntry kind="XmlFile" scope="web.config" match="//configuration/LogStashConfig/@port" />
+	</parameter>
+
+	<parameter name="logStashEnabled" defaultValue="false">
+		<parameterEntry kind="XmlFile" scope="web.config" match="//configuration/LogStashConfig/@enabled" />
+	</parameter>
+	
+<!-- Status Checker -->
+	<parameter name="statusCheckerBinding" defaultValue="*:80:status.api.keywords.local">
+		<parameterEntry kind="DestinationBinding" scope="Keywords.API.StatusChecker" />
+	</parameter>
+
+	<parameter name="statusCheckerPath">
+		<parameterEntry kind="DestinationVirtualDirectory" scope="Keywords.API.StatusChecker" />
+	</parameter>
+  
+	<parameter name="statusCheckerSiteName" defaultValue="Keywords.API.Status">
+		<parameterEntry kind="ProviderPath" scope="appHostConfig" match="Service.StatusChecker" />
+	</parameter>
+   
+	<parameter name="statusCheckerClient" defaultValue="http://v1.0.api.keywords.local/ServiceAvailability.svc">
+		<parameterEntry kind="XmlFile" scope="(.*).config" match="//configuration/system.serviceModel/client/endpoint[@name='ServiceAvailabilityCheck']/@address" />
+	</parameter>
+
+	<parameter name="CompilationDebug" defaultValue="false">
+		<parameterEntry kind="XmlFile" scope="Web.config" match="//configuration/system.web/compilation/@debug" />
+	</parameter>
+
+
+</parameters>

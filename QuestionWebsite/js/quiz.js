@@ -537,8 +537,8 @@ $(function () {
 		questionTextSelector: '.question-text',
 		questionAnswerContainerSelector: '.question-answer-container',
 		questionProvider: StaticQuestionProvider(),
-		rightAnswerHandler: CompositeAnswerHandler(SoundAnswerHandler('snd/right.mp3'), HighlightQuestionAnswerHandler('#0000ff'), AlertAnswerHandler()),
-		wrongAnswerHandler: CompositeAnswerHandler(SoundAnswerHandler('snd/wrong.mp3'), HighlightQuestionAnswerHandler('#ff0000'), AlertAnswerHandler()),
+		rightAnswerHandler: CompositeAnswerHandler(SoundAnswerHandler('snd/right.mp3'), HighlightQuestionAnswerHandler('#0000ff'), DialogAnswerHandler()),
+		wrongAnswerHandler: CompositeAnswerHandler(SoundAnswerHandler('snd/wrong.mp3'), HighlightQuestionAnswerHandler('#ff0000'), DialogAnswerHandler()),
 		backgroundUpdater: MixedBackgroundUpdater()
 	});
 

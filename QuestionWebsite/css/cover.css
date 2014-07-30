@@ -118,7 +118,11 @@ h1 {
   text-align: center;
 }
 
-
+.logo-strip {
+  background-color: #fff;
+  padding: 20px;
+  width: 115px;
+}
 /*
 * Cover
 */

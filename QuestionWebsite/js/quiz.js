@@ -5,15 +5,15 @@ var questions = [
 	questionImage: '2.jpg',
 	questionAnswers: [
 		{
-			isCorrect: 'true',
+			isCorrect: true,
 			text: 'AmazeBalls!'
 		},
 		{
-			isCorrect: 'false',
+			isCorrect: false,
 			text: 'Potato'
 		},
 		{
-			isCorrect: 'false',
+			isCorrect: false,
 			text: 'Benefits'
 		}
 	]
@@ -23,24 +23,58 @@ var questions = [
 	questionImage: '3.jpg',
 	questionAnswers: [
 		{
-			isCorrect: 'false',
+			isCorrect: false,
 			text: 'AmazeBalls!'
 		},
 		{
-			isCorrect: 'true',
+			isCorrect: true,
 			text: 'MalaPronta',
 		},
 		{
-			isCorrect: 'false',
+			isCorrect: false,
 			text: 'Potato'
 		},
 		{
-			isCorrect: 'false',
+			isCorrect: false,
 			text: 'Benefits'
 		}
 	]
 }
 ];
+
+var AlertWrongAnswerHandler = function() {
+
+	var handleWrongAnswer = function() {
+
+		alert('WRONG!');
+	}
+
+	return {
+		HandleWrongAnswer: handleWrongAnswer
+	}
+}
+
+var StaticQuestionProvider = function() {
+
+	var getQuestion = function(questionIndex) {
+
+		return questions[questionIndex];
+	}
+
+	var testAnswer = function(questionIndex, answerIndex) {
+		return questions[questionIndex].questionAnswers[answerIndex].isCorrect;
+	}
+
+	var endOfQuiz = function(index) {
+		return (index == questions.length);
+	}
+
+	return {
+		GetQuestion: getQuestion, 
+		TestAnswer: testAnswer,
+		EndOfQuiz: endOfQuiz
+	}
+}
 
 var Quiz = function() {
 
@@ -48,8 +82,11 @@ var Quiz = function() {
 	var imageContainer;
 	var questionHeader;
 	var questionText;
-	var questionAnswerContainer;
-	var page;
+	var answerContainer;
+	var questionProvider;
+	var wrongAnswerHandler;
+	var currentQuestionIndex;
+	var dataAnswerIndex = 'data-answer-index';
 
 	var init = function(options) {
 
@@ -57,42 +94,53 @@ var Quiz = function() {
 		imageContainer = $(options.imageContainerSelector);
 		questionHeader = $(options.questionHeaderSelector);
 		questionText = $(options.questionTextSelector);
-		questionAnswerContainer = $(options.questionAnswerContainerSelector);
-		page = 0;	
+		answerContainer = $(options.questionAnswerContainerSelector);
+		questionProvider = options.questionProvider();
+		wrongAnswerHandler = options.wrongAnswerHandler();
+		currentQuestionIndex = 0;	
 
 		startQuiz.on('click', answerClicked);
 	}
 
-	var answerClicked = function(button) {
+	var answerClicked = function() {
 
-		if($(this).hasClass('false')) {
-			alert('WRONG!');
-			return;
+		var answerIndex = $(this).attr(dataAnswerIndex);
+
+		if(answerIndex != undefined) {
+
+			var answerIsCorrect = questionProvider.TestAnswer(currentQuestionIndex-1, answerIndex);
+			if(!answerIsCorrect) {
+				wrongAnswerHandler.HandleWrongAnswer();
+				return;
+			}
 		}
 
-		if(questions.length == page) {
+		if(questionProvider.EndOfQuiz(currentQuestionIndex)) {
 			quizCompleted();
 			return;
 		}
 
-		var question = questions[page];
+		var question = questionProvider.GetQuestion(currentQuestionIndex);
 
-		questionHeader.text('Question ' + (page+1));
+		prepareNextQuestion(question);
+		
+		nextQuestion();
+	}	
 
-		var nextImage = 'url("/img/' + question.questionImage + '")';
+	var prepareNextQuestion = function(question) {
+
+		questionHeader.text('Question ' + (currentQuestionIndex+1));
+
+		var nextImage = 'url("img/' + question.questionImage + '")';
 
 		imageContainer.css('background-image', nextImage);
 
 		questionText.text(question.questionText);
 
 		setQuestions(question);
-		
-		page++;
-	}	
+	}
 
 	var setQuestions = function(question) {
-
-		var answerContainer = $('.question-answer-container');
 
 		answerContainer.html('');
 
@@ -100,31 +148,32 @@ var Quiz = function() {
 			
 			var answer = question.questionAnswers[i];
 
-			createAnswerButton(answerContainer, answer);
+			createAnswerButton(answerContainer, i, answer);
 		}
 	}
 
-	var createAnswerButton = function(answerContainer, answer) {
+	var createAnswerButton = function(answerContainer, answerIndex, answer) {
 
 		var questionButton = $('<a href="#" class="btn btn-lg btn-default start-quiz ' + answer.isCorrect + '">' + answer.text + '</a>');
 
 		answerContainer.append(questionButton);
 		answerContainer.append('&nbsp;');
 
+		questionButton.attr(dataAnswerIndex, answerIndex);
 		questionButton.on('click', answerClicked);
 	}
 
 	var quizCompleted = function() {
-
-		var questionHeader = $('.question-header');
-		var questionText = $('.question-text');
-		var answerContainer = $('.question-answer-container');
 
 		questionHeader.text('CONGRATULATIONS!!!');
 
 		answerContainer.html('');
 
 		questionText.text('Well done! You are now a LateRooms employee!');
+	}
+
+	var nextQuestion = function() {
+		currentQuestionIndex++;
 	}
 
 	return {
@@ -138,9 +187,11 @@ $(function () {
 	Quiz.Init({
 		startQuizSelector: '.start-quiz',
 		imageContainerSelector: 'body',
-		questionHeaderSelector: 'question-header',
-		questionTextSelector: 'question-text',
-		questionAnswerContainerSelector: 'question-answer-container'
+		questionHeaderSelector: '.question-header',
+		questionTextSelector: '.question-text',
+		questionAnswerContainerSelector: '.question-answer-container',
+		questionProvider: StaticQuestionProvider,
+		wrongAnswerHandler: AlertWrongAnswerHandler
 	});
 
 });

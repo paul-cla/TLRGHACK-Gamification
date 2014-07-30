@@ -2,7 +2,7 @@
 var questions = [
 {
 	id: 1,
-	questionText: 'Video clip – colleague needs to finish an urgent project before they leave.',
+	questionText: 'Colleague needs to finish an urgent project before they leave. What do you do next?',
 	questionMedia: [
 		{
 			type: 'video',
@@ -34,7 +34,7 @@ var questions = [
 },
 {
 	id: 2,
-	questionText: 'Video clip – the train to Euston has been cancelled with no notification of the next train.',
+	questionText: 'The train to Euston has been cancelled with no notification of the next train.  What do you do next?',
 	questionMedia: [
 		{
 			type: 'image',
@@ -60,13 +60,13 @@ var questions = [
 		},
 		{
 			isCorrect: false,
-			text: 'd) There’s a train on the next platform – jump on it and take it from there'
+			text: 'd) There’s a train to Birmingham on the next platform – jump on it and take it from there'
 		}
 	]
 },
 {
 	id: 3,
-	questionText: 'Video clip – You bump into a couple that have booked to go to Singapore but haven’t got a hotel yet.',
+	questionText: 'You bump into a couple that have booked to go to Singapore but haven’t got a hotel yet. What do you do next?',
 	questionMedia: [
 		{
 			type: 'image',
@@ -98,7 +98,7 @@ var questions = [
 },
 {
 	id: 4,
-	questionText: 'You are only in Singapore for 1 day and you and your friend have a long list of things to see but might not have enough time. Do you?',
+	questionText: 'You are only in Singapore for 1 day and you and your friend have a long list of things to see but might not have enough time. What do you do next?',
 	questionMedia: [
 		{
 			type: 'image',
@@ -108,25 +108,25 @@ var questions = [
 	questionAnswers: [
 		{
 			isCorrect: false,
-			text: 'a) Cram them all in a day. At least you can tell people back home that you’ve done everything.'
+			text: 'a) Cram them all in a day. At least you can tell people back home that you’ve done everything!'
 		},
 		{
 			isCorrect: true,
-			text: 'b) Write a list of everything you want to see and then pick your top ones to make the most of.'
+			text: 'b) Write a list of everything you want to see and then pick your top ones to make the most of'
 		},
 		{
 			isCorrect: false,
-			text: 'c) Do what the concierge says.'
+			text: 'c) Do what the concierge says'
 		},
 		{
 			isCorrect: false,
-			text: 'd) Can’t decide so stay at the hotel. You’ll just have to go to Singapore another time.'
+			text: 'd) Can’t decide so stay at the hotel. You’ll just have to go to Singapore another time'
 		}
 	]
 },
 {
 	id: 5,
-	questionText: 'Video clip – The first thing on your list was the Botanic Gardens.  You spot 500SDG lying on the floor.',
+	questionText: 'The first thing on your list was the Botanic Gardens.  You spot 500SGD lying on the floor. What do you do next?',
 	questionMedia: [
 		{
 			type: 'image',
@@ -139,11 +139,11 @@ var questions = [
 			text: 'a) Keep it for yourself, but don’t tell your friend.  Finders Keepers!'
 		},
 		{
-			isCorrect: true,
+			isCorrect: false,
 			text: 'b) Keep it and share it with your friend – what a great piece of luck'
 		},
 		{
-			isCorrect: false,
+			isCorrect: true,
 			text: 'c) Hand it to the nearest member of staff at the gardens'
 		},
 		{
@@ -154,7 +154,7 @@ var questions = [
 },
 {
 	id: 6,
-	questionText: 'You’ve been financially rewarded for your honesty and have decided to fly to Bangkok!  On Khao San Road you’re propositioned by a man who’d like you to join him for a “late night show”.  You are reluctant but your friend is eager to get involved.',
+	questionText: 'You’ve been financially rewarded for your honesty and have decided to fly to Bangkok!  On Khao San Road you’re propositioned by a man who’d like you to join him for a “late night show”.  You are reluctant but your friends are eager to get involved. What do you do next?',
 	questionMedia: [
 		{
 			type: 'image',
@@ -168,11 +168,11 @@ var questions = [
 		},
 		{
 			isCorrect: false,
-			text: 'b) Join her even though you have your suspicions – what’s the worst that can happen'
+			text: 'b) Join them even though you have your suspicions – what’s the worst that can happen?!'
 		},
 		{
 			isCorrect: true,
-			text: 'c) Convince your friend that you will have a better night if you do something else'
+			text: 'c) Convince your friends that you will have a better night if you do something else'
 		},
 		{
 			isCorrect: false,
@@ -182,7 +182,7 @@ var questions = [
 },
 {
 	id: 7,
-	questionText: 'The final destination of your travels is Brazil where you have been enlisted an Amazon Jungle Tour with 8 other people. You have been nominated as the leader, and you need to assign roles. Do you:',
+	questionText: 'The final destination is Brazil where you have been enlisted on an Amazon Jungle Tour with 8 other people. You have been nominated as the leader, and you need to assign roles. What do you do next?',
 	questionMedia: [
 		{
 			type: 'image',
@@ -192,19 +192,19 @@ var questions = [
 	questionAnswers: [
 		{
 			isCorrect: false,
-			text: 'a) Cram them all in a day. At least you can tell people back home that you’ve done everything.'
+			text: 'a) Let everyone decide for themselves'
 		},
 		{
 			isCorrect: true,
-			text: 'c) Ask everyone to tell you their skills and assign roles.'
+			text: 'b) Ask everyone to tell you their skills and assign roles'
 		},
 		{
 			isCorrect: false,
-			text: 'c) Put everyone’s names in a hat and randomly pick numbers.'
+			text: 'c) Put everyone’s names in a hat and randomly pick numbers'
 		},
 		{
 			isCorrect: false,
-			text: 'd) Don’t assign roles and let everyone do a bit of everything.'
+			text: 'd) Don’t assign roles and let everyone do a bit of everything'
 		}
 	]
 }

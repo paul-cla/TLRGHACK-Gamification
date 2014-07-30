@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Answers.cs" />
+    <Compile Include="CheckedQuestion.cs" />
     <Compile Include="Question.cs" />
     <Compile Include="Region.cs" />
     <Compile Include="IQuestionRepository.cs" />

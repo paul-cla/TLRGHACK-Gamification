@@ -1,4 +1,5 @@
-﻿using QuestionEngine.Domain;
+﻿using QuestionEngine.API.Controllers;
+using QuestionEngine.Domain;
 
 namespace QuestionEngine.Services
 {
@@ -14,6 +15,11 @@ namespace QuestionEngine.Services
         public Question GetQuestion(int questionId)
         {
             return _questionRepository.GetQuestion(questionId);
+        }
+
+        public CheckedQuestion CheckAnswer(int questionId, int answerId)
+        {
+            return _questionRepository.CheckAnswer(questionId, answerId);
         }
     }
 }

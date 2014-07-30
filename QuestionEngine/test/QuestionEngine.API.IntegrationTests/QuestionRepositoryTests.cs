@@ -9,7 +9,7 @@ namespace QuestionEngine.API.IntegrationTests
         [Test]
         public void it_should_return_keyword_for_known_text()
         {
-            var repo = new QuestionRepository(new QuestionDatabase());
+            var repo = new QuestionRepository();
             var question = repo.GetQuestion(1);
 
             Assert.That(question.Id, Is.EqualTo(1));

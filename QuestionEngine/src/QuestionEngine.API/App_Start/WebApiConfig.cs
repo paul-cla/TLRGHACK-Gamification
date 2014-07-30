@@ -33,6 +33,17 @@ namespace QuestionEngine.API.App_Start
                 },
                 defaults: new { controller = "Question", action = "GetQuestion" }
             );
+            
+            config.Routes.MapHttpRoute(
+                name: "Question",
+                routeTemplate: "question/{questionId}/{answerId}",
+                constraints: new
+                {
+                    questionId = @"\d+",
+                    answerId = @"\d+"
+                },
+                defaults: new { controller = "Question", action = "CheckAnswer" }
+            );
 
             config.Routes.MapHttpRoute(
                 name: "CatchAllController",

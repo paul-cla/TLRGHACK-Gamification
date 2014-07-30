@@ -21,7 +21,7 @@ namespace QuestionEngine.Domain
         [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
         public int Id
         {
-            get; private set;
+            get; set;
         }
 
         [DataMember]

@@ -1,44 +1,210 @@
 
 var questions = [
 {
-	questionText: 'I want to work for LateRooms because...',
-	questionBackgroundUrl: 'http://www.youtube.com/watch?v=txGfncd5L9U',
-	questionBackgroundType: 'video',
+	id: 1,
+	questionText: 'Video clip – colleague needs to finish an urgent project before they leave.',
+	questionMedia: [
+		{
+			type: 'video',
+			url: 'www.youtube.com/watch?v=AlQvFI-ezoc'
+		},
+		{
+			type: 'image',
+			url: 'img/Peninsula.jpg'
+		}
+	],
 	questionAnswers: [
 		{
+			isCorrect: false,
+			text: 'a) Suggest they put the information on a USB stick and complete the work on the journey'
+		},
+		{
 			isCorrect: true,
-			text: 'AmazeBalls!'
+			text: 'b) Stay and help complete the task together'
 		},
 		{
 			isCorrect: false,
-			text: 'Potato'
+			text: 'c) Leave it to them, they can always catch a later train'
 		},
 		{
 			isCorrect: false,
-			text: 'Benefits'
+			text: 'd) Suggest they email their manager to say the project won’t be completed on time'
 		}
 	]
 },
 {
-	questionText: 'Which of these is a LateRooms brand...',
-	questionBackgroundUrl: 'img/3.jpg',
-	questionBackgroundType: 'image',
+	id: 2,
+	questionText: 'Video clip – the train to Euston has been cancelled with no notification of the next train.',
+	questionMedia: [
+		{
+			type: 'image',
+			url: 'img/Manchester.jpg'
+		},
+		{
+			type: 'video',
+			url: 'www.youtube.com/watch?v=AU-PA8Kqov4'
+		}
+	],
+	questionAnswers: [
+		{
+			isCorrect: true,
+			text: 'a) Ask a guard for their advice on the quickest route'
+		},
+		{
+			isCorrect: false,
+			text: 'b) Hang around and see if the board gets updated with new times'
+		},
+		{
+			isCorrect: false,
+			text: 'c) Rearrange your flights for the next day'
+		},
+		{
+			isCorrect: false,
+			text: 'd) There’s a train on the next platform – jump on it and take it from there'
+		}
+	]
+},
+{
+	id: 3,
+	questionText: 'Video clip – You bump into a couple that have booked to go to Singapore but haven’t got a hotel yet.',
+	questionMedia: [
+		{
+			type: 'image',
+			url: 'img/London.jpg'
+		},
+		{
+			type: 'video',
+			url: 'www.youtube.com/watch?v=EOttM05W3b4'
+		}
+	],
 	questionAnswers: [
 		{
 			isCorrect: false,
-			text: 'AmazeBalls!'
+			text: 'a) Tell them where you’re staying and suggest they go there'
+		},
+		{
+			isCorrect: false,
+			text: 'b) I’m too busy to help – I need to check in my bags'
+		},
+		{
+			isCorrect: false,
+			text: 'c) Suggest they search on the internet'
 		},
 		{
 			isCorrect: true,
-			text: 'MalaPronta',
+			text: 'd) Show them how to download the AsiaRooms App'
+		}
+	]
+},
+{
+	id: 4,
+	questionText: 'You are only in Singapore for 1 day and you and your friend have a long list of things to see but might not have enough time. Do you?',
+	questionMedia: [
+		{
+			type: 'image',
+			url: 'img/Singapore.jpg'
+		}
+	],
+	questionAnswers: [
+		{
+			isCorrect: false,
+			text: 'a) Cram them all in a day. At least you can tell people back home that you’ve done everything.'
+		},
+		{
+			isCorrect: true,
+			text: 'b) Write a list of everything you want to see and then pick your top ones to make the most of.'
 		},
 		{
 			isCorrect: false,
-			text: 'Potato'
+			text: 'c) Do what the concierge says.'
 		},
 		{
 			isCorrect: false,
-			text: 'Benefits'
+			text: 'd) Can’t decide so stay at the hotel. You’ll just have to go to Singapore another time.'
+		}
+	]
+},
+{
+	id: 5,
+	questionText: 'Video clip – The first thing on your list was the Botanic Gardens.  You spot 500SDG lying on the floor.',
+	questionMedia: [
+		{
+			type: 'image',
+			url: 'img/Botanic.jpg'
+		}
+	],
+	questionAnswers: [
+		{
+			isCorrect: false,
+			text: 'a) Keep it for yourself, but don’t tell your friend.  Finders Keepers!'
+		},
+		{
+			isCorrect: true,
+			text: 'b) Keep it and share it with your friend – what a great piece of luck'
+		},
+		{
+			isCorrect: false,
+			text: 'c) Hand it to the nearest member of staff at the gardens'
+		},
+		{
+			isCorrect: false,
+			text: 'd) Leave it, I’m sure they’ll come back to look for it'
+		}
+	]
+},
+{
+	id: 6,
+	questionText: 'You’ve been financially rewarded for your honesty and have decided to fly to Bangkok!  On Khao San Road you’re propositioned by a man who’d like you to join him for a “late night show”.  You are reluctant but your friend is eager to get involved.',
+	questionMedia: [
+		{
+			type: 'image',
+			url: 'img/Khaosan.jpg'
+		}
+	],
+	questionAnswers: [
+		{
+			isCorrect: false,
+			text: 'a) Let your friend go on their own'
+		},
+		{
+			isCorrect: false,
+			text: 'b) Join her even though you have your suspicions – what’s the worst that can happen'
+		},
+		{
+			isCorrect: true,
+			text: 'c) Convince your friend that you will have a better night if you do something else'
+		},
+		{
+			isCorrect: false,
+			text: 'd) Flip a coin and leave it to fate'
+		}
+	]
+},
+{
+	id: 7,
+	questionText: 'The final destination of your travels is Brazil where you have been enlisted an Amazon Jungle Tour with 8 other people. You have been nominated as the leader, and you need to assign roles. Do you:',
+	questionMedia: [
+		{
+			type: 'image',
+			url: 'img/AsiaOffice.jpg'
+		}
+	],
+	questionAnswers: [
+		{
+			isCorrect: false,
+			text: 'a) Cram them all in a day. At least you can tell people back home that you’ve done everything.'
+		},
+		{
+			isCorrect: true,
+			text: 'c) Ask everyone to tell you their skills and assign roles.'
+		},
+		{
+			isCorrect: false,
+			text: 'c) Put everyone’s names in a hat and randomly pick numbers.'
+		},
+		{
+			isCorrect: false,
+			text: 'd) Don’t assign roles and let everyone do a bit of everything.'
 		}
 	]
 }
@@ -68,6 +234,19 @@ var MagnificVideoPlayer = function() {
 
 	return {
 		PlayVideo: playVideo
+	}
+}
+
+var JavascriptSoundPlayer = function(soundFileUrl) {
+
+	var playSound = function() {
+		console.debug('playing sound file: ' + soundFileUrl);
+		var audio = new Audio(soundFileUrl);
+		audio.play()
+	}
+
+	return { 
+		PlaySound: playSound
 	}
 }
 
@@ -125,6 +304,19 @@ var VideoWrongAnswerHandler = function(wrongAnswerVideoUrl) {
 
 	var handleWrongAnswer = function() {
 		videoPlayer.PlayVideo(wrongAnswerVideoUrl);
+	}
+
+	return {
+		HandleWrongAnswer: handleWrongAnswer
+	}
+}
+
+var SoundWrongAnswerHandler = function(wrongAnswerSoundUrl) {
+
+	var soundPlayer = JavascriptSoundPlayer('snd/wrong.mp3');
+
+	var handleWrongAnswer = function() {
+		soundPlayer.PlaySound(wrongAnswerSoundUrl);
 	}
 
 	return {
@@ -211,7 +403,9 @@ var Quiz = function() {
 
 		questionHeader.text('Question ' + (currentQuestionIndex+1));
 
-		backgroundUpdater.UpdateBackground(backgroundContainer, question.questionBackgroundUrl, question.questionBackgroundType);
+		for(var i in question.questionMedia) {
+			backgroundUpdater.UpdateBackground(backgroundContainer, question.questionMedia[i].url, question.questionMedia[i].type);
+		}
 
 		questionText.text(question.questionText);
 
@@ -235,7 +429,7 @@ var Quiz = function() {
 		var questionButton = $('<a href="#" class="btn btn-lg btn-default start-quiz">' + answer.text + '</a>');
 
 		answerContainer.append(questionButton);
-		answerContainer.append('&nbsp;');
+		answerContainer.append('<br/><br/>');
 
 		questionButton.attr(dataAnswerIndex, answerIndex);
 		questionButton.on('click', answerClicked);
@@ -247,7 +441,7 @@ var Quiz = function() {
 
 		answerContainer.html('');
 
-		questionText.text('Well done! You are now a LateRooms employee!');
+		questionText.text('Congratulations your trip has come to a conclusion. You’ve created a thousand memories and made some great decisions along the way.\nNow you know what our values are, why don’t you take a look at our departments and see where your skills would fit in.');
 	}
 
 	var nextQuestion = function() {
@@ -269,7 +463,7 @@ $(function () {
 		questionTextSelector: '.question-text',
 		questionAnswerContainerSelector: '.question-answer-container',
 		questionProvider: StaticQuestionProvider(),
-		wrongAnswerHandler: AlertWrongAnswerHandler('WRONG!!'),
+		wrongAnswerHandler: SoundWrongAnswerHandler(),
 		backgroundUpdater: MixedBackgroundUpdater()
 	});
 

@@ -9,12 +9,13 @@ namespace QuestionEngine.Domain
     public class Question
     {
         // ReSharper disable InconsistentNaming
-        public Question(int ID, string Text, List<Answer> Answers)
+        public Question(int ID, string Text, List<Answer> Answers, List<Media> media)
             // ReSharper restore InconsistentNaming
         {
             Id = ID;
             this.Text = Text;
             this.Answers = Answers;
+            Media = media;
         }
 
         [DataMember]
@@ -39,9 +40,20 @@ namespace QuestionEngine.Domain
             private set;
         }
 
-        public int NextQuestion { get; set; }
+        public List<Media> Media { get; set; }
 
-        public string BackgroundUrl { get; set; }
-        public string BackgroundType { get; set; }
+        public int NextQuestion { get; set; }
+    }
+
+    public class Media
+    {
+        public string Type { get; set; }
+        public string Url { get; set; }
+
+        public Media(string type, string url)
+        {
+            Type = type;
+            Url = url;
+        }
     }
 }

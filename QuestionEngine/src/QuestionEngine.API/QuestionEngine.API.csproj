@@ -45,9 +45,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Infrastructure.Common.1.0.97.214\lib\Infrastructure.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Infrastructure.DataAccess.Dapper, Version=3.0.94.210, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Infrastructure.DataAccess.Dapper, Version=3.0.98.66, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Infrastructure.DataAccess.3.0.94.210\lib\Infrastructure.DataAccess.Dapper.dll</HintPath>
+      <HintPath>..\..\packages\Infrastructure.DataAccess.3.0.98.066\lib\Infrastructure.DataAccess.Dapper.dll</HintPath>
     </Reference>
     <Reference Include="Infrastructure.Logging.Generic">
       <HintPath>..\..\packages\Infrastructure.Logging.1.0.97.828\lib\Infrastructure.Logging.Generic.dll</HintPath>

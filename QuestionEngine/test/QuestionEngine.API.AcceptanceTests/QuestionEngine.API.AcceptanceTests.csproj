@@ -39,10 +39,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Infrastructure.Common.1.0.97.214\lib\Infrastructure.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Infrastructure.DataAccess.Dapper, Version=3.0.94.210, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Infrastructure.DataAccess.3.0.94.210\lib\Infrastructure.DataAccess.Dapper.dll</HintPath>
-    </Reference>
     <Reference Include="Nancy">
       <HintPath>..\..\packages\Nancy.0.18.0\lib\net40\Nancy.dll</HintPath>
     </Reference>

@@ -1,6 +1,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlServerCe;
 using Infrastructure.DataAccess.Dapper;
 
 namespace QuestionEngine.DataAccess
@@ -16,7 +17,7 @@ namespace QuestionEngine.DataAccess
 
         public IDbConnection OpenConnection()
         {
-            var connection = new SqlConnection(_connectionString);
+            var connection = new SqlCeConnection(_connectionString);
             connection.Open();
             return connection;
         }

@@ -35,10 +35,6 @@
     <Reference Include="FluentAssertions">
       <HintPath>..\..\packages\FluentAssertions.2.0.1\lib\net45\FluentAssertions.dll</HintPath>
     </Reference>
-    <Reference Include="Infrastructure.DataAccess.Dapper, Version=3.0.94.210, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Infrastructure.DataAccess.3.0.94.210\lib\Infrastructure.DataAccess.Dapper.dll</HintPath>
-    </Reference>
     <Reference Include="Infrastructure.Logging.Generic, Version=1.0.97.828, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Infrastructure.Logging.1.0.97.828\lib\Infrastructure.Logging.Generic.dll</HintPath>

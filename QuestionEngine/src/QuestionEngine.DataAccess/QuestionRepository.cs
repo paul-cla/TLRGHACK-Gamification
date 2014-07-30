@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Runtime.Caching;
 using Infrastructure.DataAccess.Dapper;
 using QuestionEngine.Domain;
@@ -8,12 +7,13 @@ namespace QuestionEngine.DataAccess
 {
     public class QuestionRepository : IQuestionRepository
     {
-        private readonly IDatabase _database;
+        private readonly QuestionSet _questionsSet;
         private readonly ObjectCache _cache = MemoryCache.Default;
 
-        public QuestionRepository(IDatabase database)
+        public QuestionRepository()
         {
-            _database = database;
+            _questionsSet = new QuestionSet();
+            _questionsSet.Questions.Add(new Question(1, "Test"));
         }
 
         public Question GetQuestion(int questionId)
@@ -85,17 +85,19 @@ namespace QuestionEngine.DataAccess
 
         public Question GetQuestionFromRepo(int questionId)
         {
-//            const string query = @"SELECT TOP 1 id as RegionId, Name AS RegionText, FriendlyName AS FriendlyText FROM laterooms.Area ( NOLOCK )
-//                                    WHERE [id] = @QuestionId";
+            //const string query = @"SELECT ID, Text FROM Questions WHERE [ID] = @QuestionId";
 
-//            using (var connection = _database.OpenConnection())
-//            {
-//                var data = connection.Query<Question>(query, new { QuestionId = questionId });
-//                var regionData = data as Question[] ?? data.ToArray();
-//                return regionData.Any() ? regionData.First() : new Question(0, string.Empty, null);
-//            }
+            //using (var connection = _database.OpenConnection())
+            //{
+            //    var data = connection.Query<Question>(query, new { QuestionId = questionId });
+            //    var regionData = data as Question[] ?? data.ToArray();
+            //    return regionData.Any() ? regionData.First() : new Question(0, string.Empty);
+            //}
 
-            return new Question(1, "Question 1", new List<Answer>());
+            return new Question(0, string.Empty);
+
+
+
         }
     }
 }

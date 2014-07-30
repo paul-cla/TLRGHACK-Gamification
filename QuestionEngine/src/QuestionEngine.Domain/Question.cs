@@ -9,12 +9,12 @@ namespace QuestionEngine.Domain
     public class Question
     {
         // ReSharper disable InconsistentNaming
-        public Question(int QuestionId, string Text, List<Answer> Answers)
+        public Question(int ID, string Text)
             // ReSharper restore InconsistentNaming
         {
-            Id = QuestionId;
+            Id = ID;
             this.Text = Text;
-            this.Answers = Answers;
+           // this.Answers = Answers;
         }
 
         [DataMember]
@@ -31,11 +31,11 @@ namespace QuestionEngine.Domain
             get; private set;
         }
 
-        [DataMember]
-        [JsonProperty("Answers", NullValueHandling = NullValueHandling.Ignore)]
-        public List<Answer> Answers
-        {
-            get; private set;
-        }
+        //[DataMember]
+        //[JsonProperty("Answers", NullValueHandling = NullValueHandling.Ignore)]
+        //public List<Answer> Answers
+        //{
+        //    get; private set;
+        //}
     }
 }

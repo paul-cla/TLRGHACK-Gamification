@@ -143,7 +143,15 @@ h1 {
   color: #999; /* IE8 proofing */
   color: rgba(255,255,255,.5);
 }
-
+.lr-facts p{
+  background-color: #090146;
+  border-radius: 30px;
+  line-height: 24px;
+  text-shadow: none;
+  color: #fff;
+  padding: 10px 20px;
+  margin-left: 20px;
+}
 
 /*
 * Affix and center

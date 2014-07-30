@@ -311,6 +311,33 @@ var VideoWrongAnswerHandler = function(wrongAnswerVideoUrl) {
 	}
 }
 
+var HighlightQuestionWrongAnswerHandler = function() {
+
+
+	var handleWrongAnswer = function(context) {
+		context.animate({ backgroundColor: '#ff0000 '}, 500);
+	}
+
+	return {
+		HandleWrongAnswer: handleWrongAnswer
+	}
+}
+
+var CompositeWrongAnswerHandler = function() {
+
+	var handlers = arguments;
+
+	var handleWrongAnswer = function(context) {
+		for(var i in handlers) {
+			handlers[i].HandleWrongAnswer(context);
+		}
+	}
+
+	return {
+		HandleWrongAnswer: handleWrongAnswer
+	}
+}
+
 var SoundWrongAnswerHandler = function(wrongAnswerSoundUrl) {
 
 	var soundPlayer = JavascriptSoundPlayer('snd/wrong.mp3');
@@ -382,13 +409,14 @@ var Quiz = function() {
 
 	var answerClicked = function() {
 
-		var answerIndex = $(this).attr(dataAnswerIndex);
+		var button = $(this);
+		var answerIndex = button.attr(dataAnswerIndex);
 
 		if(answerIndex != undefined) {
 
 			var answerIsCorrect = questionProvider.TestAnswer(currentQuestionIndex-1, answerIndex);
 			if(!answerIsCorrect) {
-				wrongAnswerHandler.HandleWrongAnswer();
+				wrongAnswerHandler.HandleWrongAnswer(button);
 				return;
 			}
 		}
@@ -465,7 +493,7 @@ $(function () {
 		questionTextSelector: '.question-text',
 		questionAnswerContainerSelector: '.question-answer-container',
 		questionProvider: StaticQuestionProvider(),
-		wrongAnswerHandler: SoundWrongAnswerHandler(),
+		wrongAnswerHandler: CompositeWrongAnswerHandler(SoundWrongAnswerHandler(), HighlightQuestionWrongAnswerHandler()),
 		backgroundUpdater: MixedBackgroundUpdater()
 	});
 

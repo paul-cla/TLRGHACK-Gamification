@@ -9,7 +9,6 @@ namespace QuestionEngine.DataAccess
     public class QuestionRepository : IQuestionRepository
     {
         private readonly QuestionSet _questionsSet;
-        private readonly ObjectCache _cache = MemoryCache.Default;
 
         public QuestionRepository()
         {

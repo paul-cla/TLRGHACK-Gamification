@@ -40,14 +40,23 @@ namespace QuestionEngine.Domain
             private set;
         }
 
+        [DataMember]
+        [JsonProperty("Media", NullValueHandling = NullValueHandling.Ignore)]
         public List<Media> Media { get; set; }
 
+        [DataMember]
+        [JsonProperty("NextQuestion", NullValueHandling = NullValueHandling.Ignore)]
         public int NextQuestion { get; set; }
     }
 
     public class Media
     {
+        [DataMember]
+        [JsonProperty("Type", NullValueHandling = NullValueHandling.Ignore)]
         public string Type { get; set; }
+
+        [DataMember]
+        [JsonProperty("Url", NullValueHandling = NullValueHandling.Ignore)]
         public string Url { get; set; }
 
         public Media(string type, string url)
